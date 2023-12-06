@@ -142,6 +142,7 @@ spec:
               value: /vault/license/{{ .Values.server.enterpriseLicense.secretKey }}
             {{- end }}
             {{ template "vault.envs" . }}
+            {{- include "vault.extraEnv" .Values.server | nindent 12 }}
             {{- include "vault.extraEnvironmentVars" .Values.server | nindent 12 }}
             {{- include "vault.extraSecretEnvironmentVars" .Values.server | nindent 12 }}
           volumeMounts:

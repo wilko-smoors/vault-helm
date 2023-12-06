@@ -991,6 +991,15 @@ Sets extra CSI service account annotations
 {{/*
 Inject extra environment vars in the format key:value, if populated
 */}}
+{{- define "vault.extraEnv" -}}
+{{- if .extraEnv -}}
+{{- .extraEnv | toYaml }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Inject extra environment vars in the format key:value, if populated
+*/}}
 {{- define "vault.extraEnvironmentVars" -}}
 {{- if .extraEnvironmentVars -}}
 {{- range $key, $value := .extraEnvironmentVars }}
